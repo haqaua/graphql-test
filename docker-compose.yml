@@ -1,0 +1,10 @@
+version: '3.4'
+services:
+  graphtest:
+    build:
+      network: host
+      context: ./
+      dockerfile: Dockerfile
+    container_name: graphtest
+    ports:
+      - "3000:3000"

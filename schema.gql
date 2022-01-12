@@ -1,0 +1,52 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @key(fields: String!) on OBJECT | INTERFACE
+
+directive @extends on OBJECT | INTERFACE
+
+directive @external on OBJECT | FIELD_DEFINITION
+
+directive @requires(fields: String!) on FIELD_DEFINITION
+
+directive @provides(fields: String!) on FIELD_DEFINITION
+
+type PaginationModel {
+  pageSize: Float
+  pageNumber: Float
+}
+
+type User {
+  first_name: String!
+  last_name: String!
+  username: String!
+  email: String!
+  mobile: String!
+}
+
+type UsersWithPagination {
+  pagination: PaginationModel
+  data: [User!]
+}
+
+type Query {
+  usersList(
+    """
+    Get all items that match the query string in the name, firstname or email field
+    """
+    search: UsersFilterParams
+
+    """Pagination options (Page Number & Page Size)"""
+    pagination: PaginationParams
+  ): UsersWithPagination!
+}
+
+input UsersFilterParams {
+  searchString: String
+}
+
+input PaginationParams {
+  pageNumber: Float
+  pageSize: Float
+}
