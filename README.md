@@ -54,3 +54,5 @@ $ docker-compose up
 # To stop docker container
 $ docker-compose down
 ```
+
+## Open http://localhost:3000/graphql in your browser
